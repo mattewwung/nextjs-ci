@@ -1,4 +1,4 @@
-name: Build & Push Docker Image
+name: Build Docker Image
 
 on:
   push:
@@ -15,5 +15,13 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
-      - name: Set up Docker Buildx
+      - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false              # ❗ 只构建，不推送
+          tags: my-app:test        # 任意 tag，只在构建时使用
