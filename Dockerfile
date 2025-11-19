@@ -6,7 +6,7 @@ COPY package.json package-lock.json ./
 
 RUN npm install -g pm2@6.0.13 @sap/cds-dk@8.8.2
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
