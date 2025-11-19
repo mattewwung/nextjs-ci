@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-RUN npm install -g pm2
+RUN npm install -g pm2@6.0.13
 RUN npm i -g @sap/cds-dk@8.8.2
 RUN npm install
 
